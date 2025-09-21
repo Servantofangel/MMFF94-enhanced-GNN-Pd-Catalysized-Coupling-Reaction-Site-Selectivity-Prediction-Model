@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-ENHANCED MMFF-GNN INFERENCE WITH VISUALIZATION
-Generates comprehensive graphs and molecular visualizations
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -21,12 +14,6 @@ import os
 from tqdm import tqdm
 import warnings
 warnings.filterwarnings('ignore')
-
-print("🎨 ENHANCED MMFF-GNN INFERENCE WITH VISUALIZATION")
-print("="*60)
-print("🎯 Optimized threshold: 0.75")
-print("📊 Expected: Precision=45.3%, Recall=50.7%, F1=47.8%")
-print("="*60)
 
 class ProductionMMFFGNN(nn.Module):
     """Optimized MMFF-GNN for production inference"""
@@ -108,7 +95,7 @@ def smiles_to_graph(smiles):
                 atom.GetTotalNumHs(),                   # 5: H count
                 int(atom.IsInRing()),                   # 6: Ring membership
                 atom.GetHybridization().real,           # 7: Hybridization
-                mmff_charges[i],                        # 8: MMFF partial charge ⭐
+                mmff_charges[i],                        # 8: MMFF partial charge
                 atom.GetMass() / 100.0,                 # 9: Atomic mass
             ]
             atom_features.append(features)
